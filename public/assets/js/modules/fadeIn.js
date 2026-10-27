@@ -1,6 +1,7 @@
 export class FadeInManager {
-    constructor() {
-        this.fadeIns = document.querySelectorAll(".fade-in");
+    constructor(selector = ".fade-in", threshold = 0.5) {
+        this.fadeIns = document.querySelectorAll(selector);
+        this.threshold = threshold;
     }
 
     init() {
@@ -12,7 +13,7 @@ export class FadeInManager {
                 }
             });
         }, {
-            threshold: 0.5
+            threshold: this.threshold
         });
 
         this.fadeIns.forEach(fadeIn => {
