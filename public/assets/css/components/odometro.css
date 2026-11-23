@@ -1,0 +1,55 @@
+/* Contador "odômetro": cada dígito é uma fita 0-9 que rola de cima para baixo */
+.odometro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  font-size: clamp(1.9rem, 7vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--titulo);
+  font-variant-numeric: tabular-nums;
+}
+
+.odometro__digito {
+  position: relative;
+  display: inline-block;
+  width: 0.66em;
+  height: 1.2em;
+  overflow: hidden;
+  text-align: center;
+  /* esmaece o topo e a base, como num odômetro mecânico */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+}
+
+.odometro__fita {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--i, 0) * -1.2em));
+  transition: transform var(--duracao, 1.1s) cubic-bezier(0.22, 0.8, 0.24, 1) var(--atraso, 0s);
+}
+.odometro__fita--sem-transicao {
+  transition: none;
+}
+.odometro__fita span {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2em;
+}
+
+.odometro__fixo {
+  display: inline-block;
+  padding: 0 0.04em;
+}
+.odometro__fixo--espaco {
+  width: 0.35em;
+}
+
+/* Variante para os KPIs: herda o tamanho do .kpi__valor e alinha à esquerda */
+.odometro--kpi {
+  justify-content: flex-start;
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.2;
+}

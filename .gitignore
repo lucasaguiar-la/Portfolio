@@ -35,3 +35,5 @@ Desktop.ini
 
 # Cloudflare
 cloudflared-linux-amd64.deb
+# Graphify
+graphify-out/

@@ -1,0 +1,45 @@
+/* Campo "copie o e-mail" */
+.copiavel {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.copiavel__rotulo {
+  font-size: 0.85rem;
+}
+.copiavel__campo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  padding: 6px 6px 6px 14px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-pilula);
+  background-color: var(--pilula-bg);
+}
+.copiavel__texto {
+  font-size: clamp(0.8rem, 3.8vw, 1rem);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.copiavel__botao {
+  padding: 8px 18px;
+  border: none;
+  border-radius: var(--raio-pilula);
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--botao-fg);
+  background-color: var(--botao-bg);
+  transition: background-color 0.3s, color 0.3s;
+}
+.copiavel__botao:hover {
+  color: var(--botao-hover-fg);
+  background-color: var(--botao-hover-bg);
+}
+.copiavel__aviso {
+  min-height: 1.2em;
+  font-size: 0.8rem;
+  color: var(--destaque);
+}

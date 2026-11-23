@@ -1,0 +1,18 @@
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  padding: 1.5rem var(--gutter) 2rem;
+  font-size: 0.8rem;
+  text-align: center;
+  background-color: var(--bg-alt);
+}
+.rodape a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--destaque);
+}
+.rodape a:hover {
+  text-decoration: underline;
+}

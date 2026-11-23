@@ -1,0 +1,25 @@
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+  gap: 1rem;
+}
+
+.kpi {
+  padding: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-md);
+  background-color: var(--surface-2);
+}
+.kpi__valor {
+  display: block;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--titulo);
+}
+.kpi__rotulo {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-suave);
+}

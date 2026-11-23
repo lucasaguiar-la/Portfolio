@@ -1,5 +1,7 @@
 const pool = require('../db/db');
 
+const VALID_TIERS = ['spotlight', 'featured', 'other'];
+
 exports.getProjects = async (req, res) => {
     try {
         const projectsResult = await pool.query(
@@ -11,14 +13,18 @@ exports.getProjects = async (req, res) => {
                 p.image_url,
                 p.github_url,
                 p.live_url,
+                p.tier,
+                p.sort_order,
+                p.metrics,
                 t.name AS technology_name,
-                t.iconsrc AS technology_icon_url
+                t.iconsrc AS technology_icon_url,
+                t.kind AS technology_kind
             FROM projects p
             LEFT JOIN projects_technologies pt
                 ON pt.project_id = p.id
             LEFT JOIN technologies t
                 ON t.id = pt.technology_id
-            ORDER BY p.created_at DESC
+            ORDER BY p.sort_order ASC, p.created_at DESC, CASE t.kind WHEN 'language' THEN 0 WHEN 'framework' THEN 1 WHEN 'database' THEN 2 ELSE 3 END, t.name ASC
             `
         );
 
@@ -33,6 +39,9 @@ exports.getProjects = async (req, res) => {
                     imageUrl: row.image_url,
                     githubUrl: row.github_url,
                     liveUrl: row.live_url,
+                    tier: row.tier,
+                    sortOrder: row.sort_order,
+                    metrics: row.metrics,
                     technologies: []
                 });
             }
@@ -40,7 +49,8 @@ exports.getProjects = async (req, res) => {
             if (row.technology_name && row.technology_icon_url) {
                 projectsMap.get(row.id).technologies.push({
                     name: row.technology_name,
-                    iconUrl: row.technology_icon_url
+                    iconUrl: row.technology_icon_url,
+                    kind: row.technology_kind
                 });
             }
         });
@@ -62,7 +72,10 @@ exports.createProject = async (req, res) => {
             imageUrl,
             githubUrl,
             liveUrl,
-            technologies
+            technologies,
+            tier = 'other',
+            sortOrder = 0,
+            metrics = null
         } = req.body;
 
         if (!title || !description) {
@@ -73,14 +86,23 @@ exports.createProject = async (req, res) => {
             return res.status(400).json({ error: 'imageUrl is required' });
         }
 
+        if (!VALID_TIERS.includes(tier)) {
+            return res.status(400).json({ error: `tier must be one of: ${VALID_TIERS.join(', ')}` });
+        }
+
+        if (!Number.isInteger(sortOrder)) {
+            return res.status(400).json({ error: 'sortOrder must be an integer' });
+        }
+
         const { rows } = await pool.query(
             `
             INSERT INTO projects
-            (title, description, image_url, github_url, live_url)
-            VALUES ($1, $2, $3, $4, $5)
+            (title, description, image_url, github_url, live_url, tier, sort_order, metrics)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING *
             `,
-            [title, description, imageUrl, githubUrl || null, liveUrl || null]
+            [title, description, imageUrl, githubUrl || null, liveUrl || null,
+             tier, sortOrder, metrics ? JSON.stringify(metrics) : null]
         );
 
         const projectId = rows[0].id;
@@ -108,6 +130,9 @@ exports.createProject = async (req, res) => {
             imageUrl: rows[0].image_url,
             githubUrl: rows[0].github_url,
             liveUrl: rows[0].live_url,
+            tier: rows[0].tier,
+            sortOrder: rows[0].sort_order,
+            metrics: rows[0].metrics,
             technologies: []
         });
     } catch (err) {

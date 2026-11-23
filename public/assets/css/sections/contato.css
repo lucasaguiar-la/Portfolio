@@ -1,0 +1,34 @@
+.contato {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  text-align: center;
+}
+.contato__texto {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 25px;
+}
+.contato__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: 600px;
+  margin: 2.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borda);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 950px) {
+  .contato {
+    text-align: left;
+  }
+  .contato__texto,
+  .contato__rodape {
+    margin-left: 0;
+  }
+  .contato .copiavel {
+    align-items: flex-start;
+  }
+}

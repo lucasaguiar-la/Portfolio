@@ -7,6 +7,9 @@
 -- A API ordena os cards por created_at DESC, então o primeiro da lista recebe
 -- o created_at mais recente.
 
+-- ATENÇÃO: este script limpa e repopula os dados. Depois dele, rode migracao_tier_neon.sql
+-- (idempotente) para reaplicar tier / sort_order / metrics (DocsPro em destaque, 3 principais, outros).
+
 BEGIN;
 
 -- Limpeza (as três tabelas juntas por causa das chaves estrangeiras)

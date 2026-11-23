@@ -1,0 +1,75 @@
+/* ==========================================================================
+   TOKENS: paleta, escalas e tokens semânticos por tema.
+   O ThemeManager só troca a classe do <body> (tema-escuro / tema-claro);
+   todo o resto do CSS consome apenas os tokens semânticos abaixo.
+   ========================================================================== */
+:root {
+  /* paleta */
+  --verde-escuro: #00701F;
+  --verde-claro: #A3FFBD;
+  --verde-militar: #424F46;
+  --cinza: #3f3f3f;
+  --cinza-claro: #868686;
+  --preto: #020202;
+  --preto-claro: #1B1B1B;
+  --branco: #dfdfdf;
+  --branco-escuro: #cecece;
+
+  /* escalas */
+  --fonte: Montserrat, system-ui, sans-serif;
+  --raio-sm: 5px;
+  --raio-md: 10px;
+  --raio-lg: 30px;
+  --raio-pilula: 999px;
+  --largura-max: 1100px;
+  --espaco-secao: clamp(3rem, 8vw, 6rem);
+  --gutter: 20px;
+}
+
+/* ---- Tema escuro (padrão) ---- */
+body, body.tema-escuro {
+  --bg: var(--preto);
+  --bg-alt: var(--preto-claro);
+  --surface: var(--cinza);
+  --surface-2: rgba(0, 0, 0, 0.28);
+  --text: var(--branco);
+  --text-forte: #fff;
+  --text-suave: #b9b9b9;
+  --titulo: var(--verde-claro);
+  --destaque: var(--verde-claro);
+  --botao-bg: var(--verde-claro);
+  --botao-fg: var(--verde-escuro);
+  --botao-hover-bg: var(--verde-militar);
+  --botao-hover-fg: var(--verde-claro);
+  --borda: var(--verde-militar);
+  --pilula-bg: var(--preto-claro);
+  --eyebrow: aliceblue;
+  --hero-fim: var(--cinza);
+  --tema-btn-bg: #4d4d4d80;
+  --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --skeleton: #ffffff15;
+}
+
+/* ---- Tema claro: só redefine tokens ---- */
+body.tema-claro {
+  --bg: var(--branco-escuro);
+  --bg-alt: var(--cinza-claro);
+  --surface: #e6e6e6;
+  --surface-2: rgba(0, 0, 0, 0.07);
+  --text: var(--preto);
+  --text-forte: var(--preto);
+  --text-suave: #2f2f2f;
+  --titulo: var(--verde-escuro);
+  --destaque: var(--verde-escuro);
+  --botao-bg: var(--verde-militar);
+  --botao-fg: var(--branco-escuro);
+  --botao-hover-bg: var(--cinza);
+  --botao-hover-fg: var(--verde-claro);
+  --borda: var(--verde-militar);
+  --pilula-bg: var(--branco);
+  --eyebrow: var(--preto);
+  --hero-fim: var(--preto-claro);
+  --tema-btn-bg: #3f3f3f8a;
+  --sombra-card: 0 10px 30px rgba(0, 0, 0, 0.18);
+  --skeleton: #00000015;
+}

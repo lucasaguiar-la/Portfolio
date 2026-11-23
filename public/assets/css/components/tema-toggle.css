@@ -1,0 +1,28 @@
+#trocarTema {
+  position: fixed;
+  bottom: 25px;
+  left: 80%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--tema-btn-bg);
+  cursor: pointer;
+  filter: drop-shadow(3px 3px 2px #333333a5);
+  transition: background-color 0.5s ease;
+}
+.trocar-tema-icon {
+  width: 30px;
+  transition: transform 0.5s ease;
+}
+.trocar-tema-icon.girando {
+  transform: rotate(360deg);
+}
+
+@media (min-width: 600px) { #trocarTema { left: 85%; } }
+@media (min-width: 720px) { #trocarTema { left: 90%; } }
+@media (min-width: 950px) { #trocarTema { left: 25px; } }

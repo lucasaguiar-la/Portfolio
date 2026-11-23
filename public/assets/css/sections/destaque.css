@@ -1,0 +1,73 @@
+/* Case em destaque (DocsPro) */
+.case {
+  display: grid;
+  gap: 2rem;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-lg);
+  background-color: var(--surface);
+  box-shadow: var(--sombra-card);
+}
+
+.case__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.case__rotulo {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+.case__titulo {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 400;
+  color: var(--titulo);
+}
+.case__descricao {
+  color: var(--text);
+}
+
+.case__resultados {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.economia {
+  padding: 1.25rem;
+  border-radius: var(--raio-md);
+  text-align: center;
+  background-color: var(--surface-2);
+}
+.economia__rotulo {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-suave);
+}
+.economia__legenda {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-suave);
+}
+.economia__nota {
+  max-width: 46ch;
+  margin: 0 auto;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-suave);
+}
+
+@media (min-width: 950px) {
+  .case {
+    grid-template-columns: 1fr 1.25fr;
+    align-items: center;
+  }
+}

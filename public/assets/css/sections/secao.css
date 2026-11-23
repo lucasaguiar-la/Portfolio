@@ -1,0 +1,55 @@
+/* Estrutura comum das seções (Destaque, Projetos, Outros, Contato) */
+.secao {
+  padding: var(--espaco-secao) var(--gutter);
+  background-color: var(--bg);
+}
+.secao--alt {
+  background-color: var(--bg-alt);
+}
+
+.secao__cabecalho {
+  max-width: var(--largura-max);
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.secao__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+}
+.secao__titulo {
+  position: relative;
+  padding-bottom: 0.9rem;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  color: var(--titulo);
+}
+.secao__titulo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 130px;
+  height: 4px;
+  transform: translateX(-50%);
+  background-color: var(--destaque);
+}
+
+@media (min-width: 950px) {
+  .secao__cabecalho {
+    text-align: left;
+  }
+  .secao__titulo::after {
+    left: 0;
+    transform: none;
+  }
+}
+
+/* Cabeçalho centralizado em todas as larguras (ex.: Outros projetos) */
+.secao__cabecalho--centro {
+  text-align: center;
+}
+.secao__cabecalho--centro .secao__titulo::after {
+  left: 50%;
+  transform: translateX(-50%);
+}

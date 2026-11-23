@@ -1,0 +1,60 @@
+/* Reset e base global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  background-color: var(--preto);
+}
+
+body {
+  font-family: var(--fonte);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+/* Scroll */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--cinza-claro); }
+::-webkit-scrollbar-thumb { background: var(--verde-claro); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--verde-escuro); }
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

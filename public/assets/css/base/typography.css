@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(../../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+  font-display: swap;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+/* Animação de entrada (classe .start adicionada pelo IntersectionObserver) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out var(--atraso, 0s), transform 1.2s ease-out var(--atraso, 0s);
+}
+.fade-in.start {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
