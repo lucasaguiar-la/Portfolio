@@ -41,7 +41,7 @@
     color: var(--preto);
   }
 
-  .home-nome, label {
+  .home-nome {
     color: var(--verde-escuro);
   }
 
@@ -55,9 +55,23 @@
     background-color: var(--verde-escuro);
   }
 
-  .card-botoes a, .botao-footer {
+  .card-botoes a, .botao-footer, .copiavel__botao {
     color: var(--branco-escuro);
     background-color: var(--verde-militar);
+  }
+
+  .copiavel__campo {
+    background-color: var(--branco);
+    border-color: var(--verde-militar);
+  }
+  .contato-texto, .copiavel__rotulo, .copiavel__texto, .contato__rodape *, .rodape p, .rodape strong, .rodape span {
+    color: var(--preto);
+  }
+  .copiavel__aviso, .rodape a {
+    color: var(--verde-escuro);
+  }
+  .rodape {
+    background-color: var(--cinza-claro);
   }
 
   /*=====.:[COMPUTADORES]:.=====*/

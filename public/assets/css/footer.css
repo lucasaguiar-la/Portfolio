@@ -4,29 +4,9 @@
     background-color: var(--preto);
 }
 
-.form-footer {
+.contato-conteudo {
     padding: 20px;
-}
-.form-info, .form-mensagem {
     text-align: center;
-}
-label {
-    line-height: 40px;
-    font-weight: 400;
-    color: var(--verde-claro);
-}
-input, textarea {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--cinza-claro);
-}
-textarea {
-    resize: none;
-}
-::placeholder {
-    color: white;
 }
 
 .form-titulo::before {
@@ -47,16 +27,98 @@ textarea {
     background-color: var(--verde-claro);
 }
 
-.form-mensagem {
-    margin-bottom: 1rem;
+.contato-texto {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 25px;
 }
 
 .botao-footer {
-    width: 100%;
-    padding: 10px;
+    display: inline-block;
+    padding: 12px 28px;
     border-radius: 5px;
     border: none;
+    text-align: center;
+    text-decoration: none;
     font-weight: 600;
     color: var(--verde-escuro);
     background-color: var(--verde-claro);
+}
+
+.copiavel {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+.copiavel__rotulo {
+    font-size: 0.85rem;
+}
+.copiavel__campo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    padding: 6px 6px 6px 18px;
+    border: 1px solid var(--verde-militar);
+    border-radius: 999px;
+    background-color: var(--preto-claro);
+}
+.copiavel__texto {
+    overflow-wrap: anywhere;
+    font-weight: 400;
+}
+.copiavel__botao {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--verde-escuro);
+    background-color: var(--verde-claro);
+    transition: 0.3s;
+}
+.copiavel__botao:hover {
+    color: var(--verde-claro);
+    background-color: var(--verde-militar);
+}
+.copiavel__aviso {
+    min-height: 1.2em;
+    font-size: 0.8rem;
+    color: var(--verde-claro);
+}
+
+.contato__rodape {
+    max-width: 600px;
+    margin: 2.5rem auto 0;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    border-top: 1px solid var(--verde-militar);
+    font-size: 0.75rem;
+}
+.contato__rodape b {
+    font-weight: 600;
+}
+
+.rodape {
+    padding: 1.5rem 20px 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: var(--preto-claro);
+}
+.rodape a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--verde-claro);
+}
+.rodape a:hover {
+    text-decoration: underline;
 }

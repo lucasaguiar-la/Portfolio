@@ -156,25 +156,17 @@
     .form-titulo::after {
         left: 9%;
     }
-    .contato-nome, .contato-email {
-        width: 30%;
-    }
-    .form-info, .form-mensagem {
-        margin-left: 3rem;
+    .contato-conteudo {
         text-align: left;
     }
-    .form-info {
-        display: flex;
-        gap: 25px;
-    }
-    .form-mensagem {
-        width: 60%;
-    }
-    textarea {
-        height: 130px;
-    }
-    .botao-footer {
-        width: 90px;
+    .contato-texto, .botao-footer, .contato__rodape {
         margin-left: 3rem;
+    }
+    .copiavel {
+        align-items: flex-start;
+        margin-left: 3rem;
+    }
+    .contato-texto {
+        margin-right: 0;
     }
 }

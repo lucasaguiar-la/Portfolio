@@ -5,13 +5,9 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const projetosRoutes = require('./routes/projectRoutes');
-const emailRoutes = require('./routes/emailRoutes');
 
 const app = express();
 const port = process.env.PORT || 4000;
-
-// Atrás do nginx/cloudflared (loopback): permite obter o IP real do cliente
-app.set('trust proxy', 'loopback');
 
 const allowedOrigins = (process.env.CORS_ORIGINS ||
     'https://lucasaguiar.online,https://www.lucasaguiar.online')
@@ -27,7 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/projetos', projetosRoutes);
-app.use('/api/email', emailRoutes);
 
 app.get('/api/health', (req, res) => {
     res.status(200).json({

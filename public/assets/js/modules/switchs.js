@@ -4,6 +4,10 @@ const THEME = {
     LIGHT: 'tema-claro'
 };
 
+// Chave nova: ignora preferências antigas que ficaram presas no tema claro
+const STORAGE_KEY = 'portfolio-theme';
+const LEGACY_KEY = 'theme';
+
 const IMAGES = {
     DARK: {
         LOGO: './assets/images/geral/portfolio-logo-dark.png',
@@ -20,26 +24,44 @@ export class ThemeManager {
         this.themeButton = document.getElementById('trocarTema');
         this.logo = document.getElementById('logo');
         this.themeIcon = document.getElementById('trocar-tema-icon');
-        this.init();
+    }
+
+    readSavedTheme() {
+        try {
+            localStorage.removeItem(LEGACY_KEY);
+            const saved = localStorage.getItem(STORAGE_KEY);
+            return saved === THEME.LIGHT ? THEME.LIGHT : THEME.DARK;
+        } catch (error) {
+            return THEME.DARK;
+        }
+    }
+
+    saveTheme(theme) {
+        try {
+            localStorage.setItem(STORAGE_KEY, theme);
+        } catch (error) {
+            // localStorage indisponível: apenas não persiste a escolha
+        }
+    }
+
+    applyTheme(theme) {
+        const isDark = theme === THEME.DARK;
+        document.body.classList.remove(THEME.DARK, THEME.LIGHT);
+        document.body.classList.add(theme);
+        this.updateImages(isDark);
     }
 
     init() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.body.classList.add(savedTheme);
-            this.updateImages(savedTheme === THEME.DARK);
-        }
-
+        // Padrão: tema escuro, a menos que o visitante tenha escolhido o claro
+        this.applyTheme(this.readSavedTheme());
         this.themeButton.addEventListener('click', () => this.toggleTheme());
     }
 
     toggleTheme() {
-        const isDarkTheme = document.body.classList.toggle(THEME.DARK);
-        document.body.classList.toggle(THEME.LIGHT);
+        const next = document.body.classList.contains(THEME.DARK) ? THEME.LIGHT : THEME.DARK;
+        this.applyTheme(next);
         this.animateThemeIcon();
-        this.updateImages(isDarkTheme);
-
-        localStorage.setItem('theme', isDarkTheme ? THEME.DARK : THEME.LIGHT);
+        this.saveTheme(next);
     }
 
     updateImages(isDarkTheme) {
@@ -55,7 +77,3 @@ export class ThemeManager {
         }, 250);
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    new ThemeManager();
-});

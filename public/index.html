@@ -55,14 +55,11 @@
           </div>
 
           <div class="home-icones-redes">
-            <a href="https://wa.me/5511974549205" target="_blank" rel="noopener noreferrer" aria-label="Contato WhatsApp">
-              <img src="./assets/images/contatos/whatsapp-icon.png" alt="whatsapp" loading="lazy">
+            <a href="https://www.linkedin.com/in/lucas-aguiar23/" target="_blank" rel="noopener noreferrer" aria-label="Perfil LinkedIn">
+              <img src="./assets/images/contatos/linkedin-icon.png" alt="linkedin" loading="lazy">
             </a>
             <a href="https://github.com/lucasaguiar-la" target="_blank" rel="noopener noreferrer" aria-label="Perfil GitHub">
               <img src="./assets/images/contatos/github-icon.png" alt="github" loading="lazy">
-            </a>
-            <a href="https://www.linkedin.com/in/lucas-aguiar23/" target="_blank" rel="noopener noreferrer" aria-label="Perfil LinkedIn">
-              <img src="./assets/images/contatos/linkedin-icon.png" alt="linkedin" loading="lazy">
             </a>
           </div>
 
@@ -91,32 +88,37 @@
         </div>
       </section>
 
-      <footer id="contato" class="footer">
-        <form class="form-footer fade-in">
+      <section id="contato" class="footer">
+        <div class="contato-conteudo fade-in">
           <h2 class="form-titulo">Contato</h2>
-          <div class="form-info">
-            <div class="contato-nome">
-              <label for="nome">Digite seu nome</label><br>
-              <input type="text" id="nome" class="nome" name="nome" 
-                    placeholder="Digite seu nome" required><br><br>
+          <p class="contato-texto">Tem uma ideia, uma oportunidade ou só quer conversar sobre tecnologia? Me mande uma mensagem!</p>
+
+          <a href="#contato" id="enviar-email" class="botao-footer" data-user="aguiarlucas.dev" data-domain="gmail.com" data-subject="Contato pelo portfólio">Enviar e-mail</a>
+
+          <!-- alternativa se o botão acima não abrir o e-mail: copiar o endereço -->
+          <div class="copiavel">
+            <span class="copiavel__rotulo">Ou copie o e-mail:</span>
+            <div class="copiavel__campo">
+              <span class="copiavel__texto" id="email-contato"></span>
+              <button type="button" class="copiavel__botao" data-copiar="email-contato" aria-label="Copiar e-mail">Copiar</button>
             </div>
-            <div class="contato-email">
-              <label for="email">Digite seu email</label><br>
-              <input type="email" id="email" class="email" name="email" 
-                    placeholder="exemplo@gmail.com" required><br><br>
-            </div>
+            <span class="copiavel__aviso" role="status" aria-live="polite"></span>
           </div>
-          <div class="form-mensagem">
-            <label for="mensagem">Digite sua mensagem</label><br>
-            <textarea id="mensagem" name="mensagem" rows="4" cols="50" 
-                      placeholder="Não seja acanhado, mande uma mensagem ;D" required></textarea><br><br>
+
+          <div class="contato__rodape">
+            <span>Portfólio de <b>Lucas Aguiar</b></span>
+            <span>Desenvolvimento Web &amp; Automações</span>
           </div>
-          <button type="submit" class="botao-footer">Enviar</button>
-        </form>
+        </div>
+      </section>
+
+      <footer class="rodape">
+        <p><strong>Lucas Aguiar</strong> <span>· Portfólio © 2026</span></p>
+        <a href="#home">· Voltar ao topo ↑</a>
       </footer>
 
     </div>
 
-    <script type="module" src="./assets/js/main.js?v=20260421-3"></script>
+    <script type="module" src="./assets/js/main.js?v=20261123-6"></script>
   </body>
 </html>
