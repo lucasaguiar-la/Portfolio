@@ -1,5 +1,8 @@
 # Meu Portfólio
 
+#TODO: Atualizar README</br>
+#TODO: Implementar novo projeto
+
 Bem-vindo ao meu portfólio! Aqui você encontrará uma coleção de projetos que desenvolvi, demonstrando minhas habilidades em desenvolvimento de software, automações e DevOps.
 
 ## Imagens
