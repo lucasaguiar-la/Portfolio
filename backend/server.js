@@ -10,7 +10,19 @@ const emailRoutes = require('./routes/emailRoutes');
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors());
+// Atrás do nginx/cloudflared (loopback): permite obter o IP real do cliente
+app.set('trust proxy', 'loopback');
+
+const allowedOrigins = (process.env.CORS_ORIGINS ||
+    'https://lucasaguiar.online,https://www.lucasaguiar.online')
+    .split(',')
+    .map((o) => o.trim());
+
+if (process.env.NODE_ENV !== 'production') {
+    allowedOrigins.push('http://localhost:4000', 'http://localhost:3000');
+}
+
+app.use(cors({ origin: allowedOrigins }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
