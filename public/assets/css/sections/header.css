@@ -47,6 +47,6 @@
   }
   .botao-menu:hover {
     font-weight: 600;
-    color: var(--destaque);
+    color: var(--titulo-laranja);
   }
 }

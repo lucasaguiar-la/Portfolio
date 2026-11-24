@@ -11,6 +11,7 @@ exports.getProjects = async (req, res) => {
                 p.title,
                 p.description,
                 p.image_url,
+                p.logo_url,
                 p.github_url,
                 p.live_url,
                 p.tier,
@@ -37,6 +38,7 @@ exports.getProjects = async (req, res) => {
                     title: row.title,
                     description: row.description,
                     imageUrl: row.image_url,
+                    logoUrl: row.logo_url,
                     githubUrl: row.github_url,
                     liveUrl: row.live_url,
                     tier: row.tier,
@@ -70,6 +72,7 @@ exports.createProject = async (req, res) => {
             title,
             description,
             imageUrl,
+            logoUrl,
             githubUrl,
             liveUrl,
             technologies,
@@ -97,11 +100,11 @@ exports.createProject = async (req, res) => {
         const { rows } = await pool.query(
             `
             INSERT INTO projects
-            (title, description, image_url, github_url, live_url, tier, sort_order, metrics)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            (title, description, image_url, logo_url, github_url, live_url, tier, sort_order, metrics)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING *
             `,
-            [title, description, imageUrl, githubUrl || null, liveUrl || null,
+            [title, description, imageUrl, logoUrl || null, githubUrl || null, liveUrl || null,
              tier, sortOrder, metrics ? JSON.stringify(metrics) : null]
         );
 

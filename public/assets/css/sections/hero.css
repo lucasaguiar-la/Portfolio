@@ -5,14 +5,36 @@
 }
 
 .home-imagem {
+  --foto: 280px; /* lado da foto: a forma ao fundo é proporcional */
+  position: relative;
+  isolation: isolate;
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 .imagem-perfil {
-  width: 280px;
+  position: relative;
+  z-index: 1;
+  width: var(--foto);
   height: auto;
   border-radius: 1%;
+}
+
+/* Forma orgânica verde ao fundo da foto: muda de formato e se move devagar */
+.home-imagem::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--foto) * 1.15);
+  height: calc(var(--foto) * 1.15);
+  background-color: var(--verde-escuro);
+  box-shadow: 0 0 50px color-mix(in srgb, var(--verde-escuro) 55%, transparent);
+  opacity: 0.9;
+  border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+  transform: translate(-46%, -46%) rotate(0deg);
+  animation: forma-fluida 16s ease-in-out infinite;
 }
 
 .home-texto {
@@ -66,14 +88,14 @@
   text-align: center;
   text-decoration: none;
   font-weight: 600;
-  color: var(--branco);
-  background-color: var(--verde-escuro);
+  color: var(--preto);
+  background-color: var(--titulo-laranja);
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .cta-btn:hover {
   transform: translateY(-3px);
-  color: var(--verde-claro);
-  background-color: #008a26;
+  color: var(--preto);
+  background-color: color-mix(in srgb, var(--titulo-laranja) 85%, white);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 .cta-btn::before {
@@ -83,7 +105,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(163, 255, 189, 0.3), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: cta-shine 2s infinite linear;
 }
 
@@ -94,19 +116,44 @@
   margin-bottom: 2rem;
   padding: 10px;
 }
-.home-icones-redes img {
+.home-icones-redes a {
+  display: block;
   width: 48px;
   height: 48px;
+  background-color: var(--titulo-laranja);
+  -webkit-mask: var(--icone) center / contain no-repeat;
+          mask: var(--icone) center / contain no-repeat;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
-.pulsar-sombra {
-  display: inline-block;
-  animation: pulso 3.5s infinite;
+.home-icones-redes a:hover {
+  transform: translateY(-3px);
+  background-color: color-mix(in srgb, var(--titulo-laranja) 85%, white);
 }
+.icone-rede--linkedin { --icone: url('../../images/contatos/linkedin-icon.png'); }
+.icone-rede--github   { --icone: url('../../images/contatos/github-icon.png'); }
 
-@keyframes pulso {
-  0%, 100% { box-shadow: 18px 18px 1px var(--verde-escuro); }
-  50% { box-shadow: 20px 20px 5px var(--verde-escuro); }
+@keyframes forma-fluida {
+  0%, 100% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+    transform: translate(-46%, -46%) rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%;
+    transform: translate(-54%, -47%) rotate(9deg) scale(1.04);
+  }
+  50% {
+    border-radius: 55% 45% 62% 38% / 42% 58% 45% 55%;
+    transform: translate(-53%, -54%) rotate(-6deg) scale(0.97);
+  }
+  75% {
+    border-radius: 40% 60% 48% 52% / 58% 42% 52% 48%;
+    transform: translate(-47%, -53%) rotate(7deg) scale(1.03);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-imagem::before {
+    animation: none;
+  }
 }
 @keyframes ula {
   0% { transform: rotate(10deg); }
@@ -131,11 +178,11 @@
     background: linear-gradient(to right, var(--bg) 70%, var(--hero-fim) 70%);
   }
   .home-imagem {
+    --foto: 450px;
     width: 60%;
     height: 450px;
   }
   .imagem-perfil {
-    width: 450px;
     height: 450px;
   }
   .home-texto {

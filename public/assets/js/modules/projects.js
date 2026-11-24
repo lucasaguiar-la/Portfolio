@@ -1,5 +1,5 @@
-import { criarOdometroEconomia, criarRelogioProducao, rolarEstatico } from './odometro.js?v=20261123-14';
-import { FadeInManager } from './fadeIn.js?v=20261123-14';
+import { criarOdometroEconomia, criarRelogioProducao, rolarEstatico } from './odometro.js?v=20261124-19';
+import { FadeInManager } from './fadeIn.js?v=20261124-19';
 
 const API_URL = '/api/projetos';
 const IMAGEM_PADRAO = './assets/images/geral/neutro_projetos.png';
@@ -137,7 +137,7 @@ export class ProjectsManager {
         // KPIs: o valor entra como odômetro (dígitos rolam da primeira casa para a última)
         const kpis = [
             [`${formatarHoras(m.hours_saved_per_run_min)}–${formatarHoras(m.hours_saved_per_run_max)}`, 'de trabalho manual eliminado por execução'],
-            [moeda0.format(m.monthly_savings_brl), 'economizados por mês (estimativa)'],
+            [moeda0.format(m.monthly_savings_brl), 'economizados por mês (média)'],
             [formatarHoras(m.monthly_hours_returned), 'devolvidas à equipe por mês']
         ];
         const listaKpis = porId('case-kpis');
@@ -195,8 +195,19 @@ export class ProjectsManager {
             })
         ]);
 
+        const midia = criar('div', { classe: 'card__midia' }, [imagem]);
+        const logoUrl = urlSegura(projeto.logoUrl, '');
+        if (logoUrl) {
+            const logo = criar('img', {
+                classe: 'card__logo',
+                atributos: { src: logoUrl, alt: `Logo do projeto ${projeto.title}`, loading: 'lazy', decoding: 'async' }
+            });
+            logo.addEventListener('error', () => logo.remove()); // sem logo válido, fica só a imagem
+            midia.appendChild(logo);
+        }
+
         return criar('article', { classe: 'card fade-in' }, [
-            imagem,
+            midia,
             criar('div', { classe: 'card__corpo' }, [
                 criar('h3', { classe: 'card__titulo', texto: projeto.title }),
                 this.criarTecnologias(projeto.technologies),
