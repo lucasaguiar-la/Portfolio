@@ -36,6 +36,7 @@ body, body.tema-escuro {
   --text-forte: #fff;
   --text-suave: #b9b9b9;
   --titulo: var(--verde-claro);
+  --titulo-laranja: #ee9849;
   --destaque: var(--verde-claro);
   --botao-bg: var(--verde-claro);
   --botao-fg: var(--verde-escuro);
@@ -60,6 +61,7 @@ body.tema-claro {
   --text-forte: var(--preto);
   --text-suave: #2f2f2f;
   --titulo: var(--verde-escuro);
+  --titulo-laranja: #ee9849;
   --destaque: var(--verde-escuro);
   --botao-bg: var(--verde-militar);
   --botao-fg: var(--branco-escuro);

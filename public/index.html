@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
 
     <link rel="shortcut icon" href="./assets/images/fav/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/css/style.css?v=20261123-11" />
+    <link rel="stylesheet" href="./assets/css/style.css?v=20261123-14" />
     <noscript><style>.fade-in { opacity: 1; transform: none; }</style></noscript>
 
     <title>Lucas Aguiar.Dev</title>
@@ -47,8 +47,8 @@
           </div>
 
           <div class="home-descricao">
-            <p>Seja muito bem-vindo ao meu portfólio pessoal! Se você chegou até aqui, provavelmente tem interesse em saber sobre minha experiência profissional e habilidades.</p>
-            <p class="home-descricao-redes">Se deseja entrar em contato comigo, pode usar as redes sociais.</p>
+            <p>Engenheiro de automação e infraestrutura com mais de 3 anos de experiência em Python e Bash.</p>
+            <p class="home-descricao-redes">Tenho como hobbie meu próprio servidor Ubuntu com Docker, Nginx e Cloudflare Tunnel, além de projetos open-source de scripts automatizados para configurar ambientes.</p>
           </div>
 
           <div class="call-to-action">
@@ -69,11 +69,13 @@
       <!-- Destaque: case com resultados reais (preenchido por projects.js a partir da API) -->
       <section id="destaque" class="secao secao--alt" aria-labelledby="destaque-titulo" hidden>
         <div class="secao__cabecalho fade-in">
-          <p class="secao__eyebrow">Resultado real</p>
+          <p class="secao__eyebrow">Resultado <span class="pisca">real</span></p>
           <h2 class="secao__titulo" id="destaque-titulo">Projeto em destaque</h2>
         </div>
 
         <article class="case fade-in" id="case-docspro">
+          <p class="case__selo">em produção há <span class="odometro odometro--mini" id="case-relogio"></span></p>
+
           <div class="case__info">
             <p class="case__rotulo">Automação em produção</p>
             <h3 class="case__titulo" id="case-titulo"></h3>
@@ -85,14 +87,12 @@
           <div class="case__resultados">
             <ul class="kpis" id="case-kpis"></ul>
             <div class="economia">
-              <p class="economia__rotulo">Em produção há</p>
-              <div class="odometro" id="case-relogio"></div>
-              <p class="economia__legenda">horas : minutos : segundos</p>
-            </div>
-            <div class="economia">
               <p class="economia__rotulo" id="case-desde"></p>
               <div class="odometro" id="case-odometro"></div>
-              <p class="economia__nota" id="case-nota"></p>
+              <details class="economia__detalhe">
+                <summary>Como calculamos?</summary>
+                <p class="economia__nota" id="case-nota"></p>
+              </details>
             </div>
           </div>
         </article>
@@ -148,6 +148,6 @@
       <a href="#home">· Voltar ao topo ↑</a>
     </footer>
 
-    <script type="module" src="./assets/js/main.js?v=20261123-11"></script>
+    <script type="module" src="./assets/js/main.js?v=20261123-14"></script>
   </body>
 </html>

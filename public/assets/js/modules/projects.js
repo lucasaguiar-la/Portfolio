@@ -1,5 +1,5 @@
-import { criarOdometroEconomia, criarRelogioProducao, rolarEstatico } from './odometro.js?v=20261123-11';
-import { FadeInManager } from './fadeIn.js?v=20261123-11';
+import { criarOdometroEconomia, criarRelogioProducao, rolarEstatico } from './odometro.js?v=20261123-14';
+import { FadeInManager } from './fadeIn.js?v=20261123-14';
 
 const API_URL = '/api/projetos';
 const IMAGEM_PADRAO = './assets/images/geral/neutro_projetos.png';
@@ -154,7 +154,7 @@ export class ProjectsManager {
         const inicio = new Date(m.started_at);
         const desdeCurto = inicio.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
         porId('case-nota').textContent =
-            `Estimativa: ${m.analysts} analistas × ${moeda0.format(m.analyst_monthly_salary_brl)}/mês ` +
+            `Base: ${m.analysts} analistas × ${moeda0.format(m.analyst_monthly_salary_brl)}/mês ` +
             `(${m.monthly_hours_per_analyst} h) = ${moeda2.format(m.hourly_cost_team_brl)}/h; ` +
             `${m.runs_per_month} execuções por mês de ${formatarHoras(m.hours_saved_per_run_avg)} → ` +
             `${moeda2.format(m.cost_per_run_brl)} por execução. Em produção desde ${desdeCurto}.`;

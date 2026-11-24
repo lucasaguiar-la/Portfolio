@@ -1,7 +1,7 @@
-import { ThemeManager } from './modules/switchs.js?v=20261123-11';
-import { FadeInManager } from './modules/fadeIn.js?v=20261123-11';
-import { ProjectsManager } from './modules/projects.js?v=20261123-11';
-import { CopyEmailManager } from './modules/copyEmail.js?v=20261123-11';
+import { ThemeManager } from './modules/switchs.js?v=20261123-14';
+import { FadeInManager } from './modules/fadeIn.js?v=20261123-14';
+import { ProjectsManager } from './modules/projects.js?v=20261123-14';
+import { CopyEmailManager } from './modules/copyEmail.js?v=20261123-14';
 
 class App {
     constructor() {

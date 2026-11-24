@@ -32,6 +32,39 @@
   color: var(--text);
 }
 
+/* Selo discreto no canto do card: sinal de que o card está "vivo" */
+.case__selo {
+  grid-column: 1 / -1;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-pilula);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--text-suave);
+}
+
+/* "real" piscando no pré-título */
+.pisca {
+  color: var(--destaque);
+  text-shadow: 0 0 0.6em var(--destaque), 0 0 1.2em var(--destaque);
+  font-weight: 600;
+  animation: pisca 1.8s ease-in-out infinite;
+}
+@keyframes pisca {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pisca {
+    animation: none;
+  }
+}
+
 .case__resultados {
   display: flex;
   flex-direction: column;
@@ -51,11 +84,28 @@
   text-transform: uppercase;
   color: var(--text-suave);
 }
-.economia__legenda {
+.economia__detalhe {
+  margin-top: 0.5rem;
+}
+.economia__detalhe summary {
+  display: inline-block;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--text-suave);
+  cursor: pointer;
+  list-style: none;
+}
+.economia__detalhe summary::-webkit-details-marker {
+  display: none;
+}
+.economia__detalhe summary::before {
+  content: "ⓘ ";
+}
+.economia__detalhe summary:hover,
+.economia__detalhe summary:focus-visible {
+  color: var(--text);
+}
+.economia__detalhe[open] .economia__nota {
+  margin-top: 0.5rem;
 }
 .economia__nota {
   max-width: 46ch;

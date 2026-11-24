@@ -22,7 +22,7 @@
   position: relative;
   padding-bottom: 0.9rem;
   font-size: clamp(2.4rem, 7vw, 4rem);
-  color: var(--titulo);
+  color: var(--titulo-laranja);
 }
 .secao__titulo::after {
   content: '';
@@ -32,7 +32,7 @@
   width: 130px;
   height: 4px;
   transform: translateX(-50%);
-  background-color: var(--destaque);
+  background-color: var(--titulo-laranja);
 }
 
 @media (min-width: 950px) {

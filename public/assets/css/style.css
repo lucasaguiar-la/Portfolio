@@ -1,23 +1,23 @@
 /* Índice dos estilos. Ordem: base -> componentes -> seções. */
 
 /* [BASE] */
-@import url('./base/tokens.css?v=20261123-11');
-@import url('./base/reset.css?v=20261123-11');
-@import url('./base/typography.css?v=20261123-11');
+@import url('./base/tokens.css?v=20261123-14');
+@import url('./base/reset.css?v=20261123-14');
+@import url('./base/typography.css?v=20261123-14');
 
 /* [COMPONENTES] */
-@import url('./components/botao.css?v=20261123-11');
-@import url('./components/tema-toggle.css?v=20261123-11');
-@import url('./components/card.css?v=20261123-11');
-@import url('./components/kpi.css?v=20261123-11');
-@import url('./components/odometro.css?v=20261123-11');
-@import url('./components/copiavel.css?v=20261123-11');
+@import url('./components/botao.css?v=20261123-14');
+@import url('./components/tema-toggle.css?v=20261123-14');
+@import url('./components/card.css?v=20261123-14');
+@import url('./components/kpi.css?v=20261123-14');
+@import url('./components/odometro.css?v=20261123-14');
+@import url('./components/copiavel.css?v=20261123-14');
 
 /* [SEÇÕES] */
-@import url('./sections/header.css?v=20261123-11');
-@import url('./sections/hero.css?v=20261123-11');
-@import url('./sections/secao.css?v=20261123-11');
-@import url('./sections/destaque.css?v=20261123-11');
-@import url('./sections/outros.css?v=20261123-11');
-@import url('./sections/contato.css?v=20261123-11');
-@import url('./sections/rodape.css?v=20261123-11');
+@import url('./sections/header.css?v=20261123-14');
+@import url('./sections/hero.css?v=20261123-14');
+@import url('./sections/secao.css?v=20261123-14');
+@import url('./sections/destaque.css?v=20261123-14');
+@import url('./sections/outros.css?v=20261123-14');
+@import url('./sections/contato.css?v=20261123-14');
+@import url('./sections/rodape.css?v=20261123-14');
